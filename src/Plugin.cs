@@ -1,7 +1,7 @@
 using BepInEx;
 using HarmonyLib;
 using LootSearchSpeed.Utils;
-using LootSearchSpeed.Patches;
+using LootSearchSpeed.Core;
 
 
 namespace LootSearchSpeed;

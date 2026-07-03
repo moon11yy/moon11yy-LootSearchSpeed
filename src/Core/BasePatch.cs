@@ -1,6 +1,6 @@
 using HarmonyLib;
 
-namespace LootSearchSpeed.Patches;
+namespace LootSearchSpeed.Core;
 
 internal abstract class BasePatch
 {
