@@ -1,5 +1,6 @@
 using BepInEx;
 using HarmonyLib;
+using LootSearchSpeed.Utils;
 
 namespace LootSearchSpeed;
 
@@ -20,13 +21,13 @@ public class Plugin : BaseUnityPlugin
         Harmony = new Harmony(PluginInfo.Guid);
         Harmony.PatchAll();
 
-        Logger.LogInfo($"{PluginInfo.Name} v{PluginInfo.Version} loaded.");
+        Log.Info($"{PluginInfo.Name} v{PluginInfo.Version} loaded.");
     }
 
     private void OnDestroy()
     {
         Harmony?.UnpatchSelf();
 
-        Logger.LogInfo($"{PluginInfo.Name} unloaded.");
+        Log.Info($"{PluginInfo.Name} unloaded.");
     }
 }
