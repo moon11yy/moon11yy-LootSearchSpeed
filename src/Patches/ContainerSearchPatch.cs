@@ -73,16 +73,22 @@ internal sealed class ContainerSearchPatch : BasePatch
 
     private static IEnumerable<CodeInstruction> ItemRevealDelayTranspiler(IEnumerable<CodeInstruction> instructions)
     {
+
         foreach (CodeInstruction instruction in instructions)
         {
             if (instruction.opcode == OpCodes.Ldc_R4 &&
                 instruction.operand is float value &&
                 Math.Abs(value - VanillaItemRevealDelayMs) < 0.01f)
             {
-                yield return new CodeInstruction(
+                
+                CodeInstruction replacement = new CodeInstruction(
                     OpCodes.Call,
                     AccessTools.Method(typeof(ContainerSearchPatch), nameof(GetItemRevealDelayMs)));
 
+                replacement.labels.AddRange(instruction.labels);
+                replacement.blocks.AddRange(instruction.blocks);
+
+                yield return replacement;
                 continue;
             }
 
@@ -99,6 +105,8 @@ internal sealed class ContainerSearchPatch : BasePatch
     private static float GetItemRevealDelayMs()
     {
         float multiplier = ModConfig.ItemRevealDelayMultiplier.Value;
-        return Math.Max(0f, VanillaItemRevealDelayMs * multiplier);
+        float result = Math.Max(0f, VanillaItemRevealDelayMs * multiplier);
+
+        return result;
     }
 }

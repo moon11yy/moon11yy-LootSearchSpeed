@@ -3,82 +3,121 @@
 </p>
 
 <h1 align="center">
-moon11yy Loot Search Speed
+Loot Search Speed
 </h1>
 
-# moon11yy Loot Search Speed
+<p align="center">
+by <strong>moon11yy</strong>
+</p>
 
-A lightweight and vanilla-friendly search speed modifier for SPT.
+---
 
-## What this mod changes
+## ✨ Features
 
-- Initial container/corpse search delay
-- Item reveal delay inside searched containers
+- Adjustable **container & corpse search speed**
+- Adjustable **item reveal speed** inside searched containers
+- Preserves vanilla search mechanics
+- Supports **Configuration Manager (F12)**
+- Lightweight Harmony patches
+- Open source
 
-## What this mod does not change
+---
+
+## ❌ What this mod does NOT change
 
 - Unknown item examination speed
 - Trader search
-- Flea market search
+- Flea Market search
+- Loot generation
+- Search animations
 
-## Features
+---
 
-- Vanilla search behavior
-- Configurable search speed
-- Configurable item reveal speed
-- No instant loot opening
-- No automatic searching
-- Lightweight Harmony patches
-- Configuration Manager support
-- Open source
+## ⚙️ Configuration
 
-Vanilla-friendly search speed modifier for SPT 4.0.13.
+The mod provides two independent settings.
 
-✔ Doesn't skip animations
+### InitialSearchDelayMultiplier
 
-✔ Doesn't auto-search
+Controls how long the initial **Searching...** animation lasts.
 
-✔ Only modifies vanilla search delays
+| Value |  Result   |
+|-------|-----------|
+| 1.0   | Vanilla   |
+| 0.5   | 2× faster | 
+| 0.25  | 4× faster |
+| 0.0   | Instant   |
 
-# Loot Search Speed
+Default:
 
-A lightweight client-side mod for SPT that allows you to adjust
-loot search speed while preserving vanilla gameplay.
+```text
+0.5
+```
 
-## Features
+---
 
-- Configurable search speed
-- Configurable item examine speed
-- F12 support
-- Lightweight
-- No instant reveal
-- Vanilla animations
+### ItemRevealDelayMultiplier
 
-## Compatibility
+Controls how quickly items appear inside an already opened container.
 
-- SPT 4.0.13
+| Value |  Result   |
+|-------|-----------|
+| 1.0   | Vanilla   |
+| 0.5   | 2× faster |
+| 0.25  | 4× faster |
+| 0.0   | Instant   |
 
-## Installation
+Default:
 
-1. Copy DLL into BepInEx/plugins
-2. Launch the game
-3. Configure in F12
+```text
+0.5
+```
 
-## Configuration
+---
 
-InitialSearchDelayMultiplier
+## 📦 Installation
 
-Controls how long the "Searching..." animation takes.
+1. Download the latest release.
+2. Copy
 
-Default: 0.5
+```
+moon11yy.LootSearchSpeed.dll
+```
 
+into
 
-ItemRevealDelayMultiplier
+```
+BepInEx/plugins/
+```
 
-Controls how fast items are revealed inside searched containers.
+3. Launch SPT.
+4. Configure the mod through **F12** (Configuration Manager).
 
-Default: 0.5
+---
 
-## Development Testing
+## ✅ Compatibility
 
-It is recommended to test this mod on a clean SPT 4.0.13 installation before testing with large modlists.
+- SPT **4.0.13**
+- Client-side only
+- Works with existing saves
+
+---
+
+## 🛠 Development
+
+The project is open source and uses:
+
+- C#
+- .NET Framework 4.7.2
+- Harmony
+- BepInEx
+
+Testing is recommended on a clean SPT installation before using large modlists.
+
+---
+
+## 📄 License
+
+Licensed under the MIT License.
+
+Copyright © 2026 moon11yy
